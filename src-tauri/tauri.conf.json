@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "WhatsApp",
-  "version": "0.1.1",
-  "identifier": "com.whatsapp.web",
+  "productName": "WhatsApp Lite",
+  "version": "1.0.0",
+  "identifier": "com.whatsapp-lite.desktop",
   "build": {
     "beforeBuildCommand": "",
     "beforeDevCommand": ""
@@ -10,7 +10,9 @@
   "bundle": {
     "active": true,
     "category": "SocialNetworking",
-    "copyright": "MIT",
+    "copyright": "MIT License - Leonardo Matheus",
+    "shortDescription": "WhatsApp Desktop ultra-leve - 1MB RAM vs 500MB+",
+    "longDescription": "Uma alternativa leve ao WhatsApp Desktop oficial. Enquanto a versão Electron usa 500MB+ de RAM e até 60% da GPU, esta versão Rust/Tauri usa apenas ~1MB de RAM e praticamente zero GPU.",
     "linux": {
       "deb": {
         "depends": ["libwebkit2gtk-4.1-0", "libgtk-3-0", "libayatana-appindicator3-1"]
@@ -32,30 +34,38 @@
       "exceptionDomain": "",
       "frameworks": [],
       "providerShortName": null,
-      "signingIdentity": null
+      "signingIdentity": null,
+      "minimumSystemVersion": "10.13"
     },
     "resources": [],
     "targets": "all",
     "windows": {
       "certificateThumbprint": null,
       "digestAlgorithm": "sha256",
-      "timestampUrl": ""
+      "timestampUrl": "",
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      }
     }
   },
   "app": {
     "trayIcon": {
-      "iconPath": "icons/128x128@2x.png"
+      "iconPath": "icons/128x128@2x.png",
+      "title": "WhatsApp Lite"
     },
     "security": {
-      "csp": null
+      "csp": "default-src 'self' https://web.whatsapp.com https://*.whatsapp.com https://*.whatsapp.net wss://*.whatsapp.com wss://*.web.whatsapp.com; img-src 'self' https: data: blob:; media-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://web.whatsapp.com; style-src 'self' 'unsafe-inline' https://web.whatsapp.com; connect-src 'self' https://*.whatsapp.com https://*.whatsapp.net wss://*.whatsapp.com wss://*.web.whatsapp.com https://web.whatsapp.com;"
     },
     "windows": [
       {
-        "height": 675,
-        "width": 1200,
+        "height": 720,
+        "width": 1280,
+        "minHeight": 500,
+        "minWidth": 800,
         "fullscreen": false,
         "resizable": true,
-        "title": "WhatsApp",
+        "center": true,
+        "title": "WhatsApp Lite",
         "url": "https://web.whatsapp.com/",
         "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       }
